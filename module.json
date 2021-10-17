@@ -1,0 +1,40 @@
+
+{
+	"comment": "Module definition file.",
+	"name": "event",
+   "connectedApp": "default",
+	"description": "A module for events.",
+    "files": ["Events.php"],
+	"routes": {
+      "events/events":{
+         "callback":"htmlEventFullFunction",
+         "content-type":"text/html"
+      },
+      "events/eventlist":{
+         "callback":"htmlEventFunction",
+         "content-type":"text/html"
+      },
+      "events/eventlistjson":{
+        "callback":"jsonEventFunction",
+        "content-type":"application/json"
+     },
+     "events/eventdetails/%eventName":{
+      "callback":"htmlEventDetailsFunction",
+      "content-type":"text/html"
+     },
+      "events/eventdetailsjson/%eventName":{
+      "callback":"jsonEventDetailsFunction",
+      "content-type":"application/json"
+     },
+     "events/eventcontactlistjson/%eventId":{
+     "callback":"jsonContactListFunction",
+     "content-type":"application/json"
+    },
+    "events/eventcontactcountjson":{
+    "callback":"jsonContactCountFunction",
+    "content-type":"application/json"
+   }
+     
+
+    }
+}

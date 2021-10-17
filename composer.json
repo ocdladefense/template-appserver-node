@@ -1,0 +1,14 @@
+{
+    "name": "trevor-uehlin/event-module",
+    "description": "A module for retrieving event materials from a database or a local file system",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Trevor Uehlin",
+            "email": "uehlin.trevor@gmail.com"
+        }
+    ],
+    "require": {
+        "composer/installers":"~1.0"
+    }
+}
