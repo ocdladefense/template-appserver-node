@@ -14,9 +14,7 @@
     "webpack": "^5.53.0"
   },
   "dependencies": {
-    "@isaac_walters/date-formatter": "1.0.2",
-    "@isaac_walters/cache-module": "1.0.0",
-    "@isaac_walters/ocdla-view": "1.0.3"
+    "@ocdladefense/view": "^1.0.0"
   },
   "type": "module"
 }

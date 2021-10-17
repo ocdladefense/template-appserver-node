@@ -1,17 +1,22 @@
 /** @jsx vNode */
 
-import { vNode, createElement, render, updateElement, myAppEventHandler, addEvent, changeMainContainer, getMainContainer } from '/modules/events/node_modules/@isaac_walters/ocdla-view/view.js';
-import { jsDateFormatter, slqDateFormatter } from '/modules/events/node_modules/@isaac_walters/date-formatter/date.js';
+import { vNode, createElement, render, updateElement, myAppEventHandler, addEvent, changeMainContainer, getMainContainer } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
+
+
+
 import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/full/contactFieldFormat.js';
-import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@isaac_walters/cache-module/cache.js';
+
 import { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts } from '/modules/events/assets/js/lib/full/data.js';
+
 import { EventListFull, EventFull }  from '/modules/events/assets/js/lib/full/render.js';
+
 import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/js/lib/full/events.js';
 
 
 
 function init() {
-    //probably change to accually querry selecter with #, document.querrySelecter
+    // Probably change to document.querySelector.
     changeMainContainer("main");
 
     let events = getListofEvents();

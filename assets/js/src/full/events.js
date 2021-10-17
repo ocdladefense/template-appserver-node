@@ -1,8 +1,12 @@
 /** @jsx vNode */
 
 export { switchToList, switchToDetails, doSearch };
-import { vNode } from '/modules/events/node_modules/@isaac_walters/ocdla-view/view.js';
-import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@isaac_walters/cache-module/cache.js';
+
+
+import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
+
+
 import { EventListFull, EventFull, EventList, EventSearch }  from '/modules/events/assets/js/lib/full/render.js';
 import { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts } from '/modules/events/assets/js/lib/full/data.js';
 
@@ -14,18 +18,19 @@ function switchToDetails(id) {
     let contacts = getListofContacts(id);
     
     return Promise.all([event, contacts]).then(function(data) {
-        let virtualNodes = <EventFull event={data[0]} contacts={data[1]} />;
         document.getElementById("switchButton").classList.value = "switchButton";
-        window.scrollTo(0, 0);
-        return virtualNodes;
+
+        return <EventFull event={data[0]} contacts={data[1]} />;
     });
 }
 
+
+
 function switchToList() {
-    let virtualNodes = HISTORY.getRecent(1);
     document.getElementById("switchButton").classList.value = "hiddenButton";
-    window.scrollTo(0, 0);
-    return Promise.resolve(virtualNodes);
+
+		// Need to change this function call to getLast();
+    return Promise.resolve(HISTORY.getRecent(1));
 }
 
 
@@ -42,8 +47,12 @@ function doSearch(stringEntered, orderDatesAcs, orderAttendeesDesc) {
     }
 
     let virtualNodes = <div><EventListFull events={results} searchBar={stringEntered} datesChecked={orderDatesAcs} contactsChecked={orderAttendeesDesc} /></div>;
+    
     return Promise.resolve(virtualNodes);
 }
+
+
+
 
 function doesEventFit(testedEvent, stringEntered) {
     if (testedEvent.Name && testedEvent.Name.toLowerCase().includes(stringEntered.toLowerCase()) || testedEvent.Banner_Location_Text__c && testedEvent.Banner_Location_Text__c.toLowerCase().includes(stringEntered.toLowerCase())) {
@@ -53,6 +62,8 @@ function doesEventFit(testedEvent, stringEntered) {
         return false;
     }
 }
+
+
 
 function oldestToNewestSort(a, b) {
     if (a.Start_Date__c < b.Start_Date__c) {
@@ -66,6 +77,8 @@ function oldestToNewestSort(a, b) {
     }
 
 }
+
+
 
 function contactsHighestToLowest(a, b) {
     

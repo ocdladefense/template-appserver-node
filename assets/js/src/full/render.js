@@ -1,10 +1,25 @@
 /** @jsx vNode */
 
+
+/**
+
+This is our list of components to be used in the app.
+
+**/
+
+
+
 export { EventListFull, EventFull, EventList, EventSearch };
-import { vNode, createElement, render, updateElement, tree, parseComponent, nodeList } from '/modules/events/node_modules/@isaac_walters/ocdla-view/view.js';
-import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@isaac_walters/cache-module/cache.js';
-import { jsDateFormatter, slqDateFormatter } from '/modules/events/node_modules/@isaac_walters/date-formatter/date.js';
+
+
+import { vNode, createElement, render, updateElement, tree, parseComponent, nodeList } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+
+import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
+
 import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/full/contactFieldFormat.js';
+
+
+
 
 const EventListFull = function(props) {
     return(
@@ -60,7 +75,7 @@ const EventListItem = function(props) {
         <div class="event-list-item">
             <h3><a class="eventButton eventButton2" href={"#" + props.event.Id} data-action="details" data-event-id={props.event.Id}>{props.event.Name}</a></h3>
             <p>{props.event.Banner_Location_Text__c}</p>
-            <p>{slqDateFormatter(props.event.Start_Date__c)}</p>
+            <p>{props.event.Start_Date__c}</p>
             <p>Attendees: {CACHE.get("eventsContactCount")[props.event.Id] ? Count : "None"}</p>
         </div>
     )
@@ -84,7 +99,7 @@ const EventDetails = function(props) {
                 {event.Name}
             </h1>
             <h3 class="marginMaker">
-                {slqDateFormatter(event.Start_Date__c)}
+                {event.Start_Date__c}
             </h3>
             <a href={"https://ocdla.force.com/OcdlaEvent?id=" + event.Id} target="_blank" class="marginMaker">
                 Link to the event page in more detail.
@@ -127,7 +142,7 @@ const Attendee = function(props) {
     return (
         <ul class="table-row">
             <li class="table-cell attendee-name">{contact.Contact__r.Name + createMemberX(contact.Contact__r.Ocdla_Current_Member_Flag__c)}</li>
-            <li class="table-cell attendee-order-date">{jsDateFormatter(contact.Order.EffectiveDate)}</li>
+            <li class="table-cell attendee-order-date">{contact.Order.EffectiveDate}</li>
             <li class="table-cell attendee-ticket-name">{contact.Product2.Name}</li>
             <li class="table-cell attendee-city">{(contact.Contact__r.MailingCity ?? ' ') + stateFormatter(contact.Contact__r.MailingState)}</li>
         </ul>
