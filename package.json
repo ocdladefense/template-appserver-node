@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "@ocdladefense/example-project",
   "version": "1.0.0",
   "scripts": {
     "build": "babel assets/js/src -d assets/js/lib"

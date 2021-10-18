@@ -1,11 +1,15 @@
 {
-    "name": "trevor-uehlin/event-module",
-    "description": "A module for retrieving event materials from a database or a local file system",
+    "name": "ocdladefense/node-template",
+    "description": "Example module with basic node / babel functionality.",
     "type": "wordpress-theme",
     "authors": [
         {
-            "name": "Trevor Uehlin",
-            "email": "uehlin.trevor@gmail.com"
+            "name": "José Bernal",
+            "email": "jbernal.web.dev@gmail.com"
+        },
+        {
+            "name": "Isaac Walters",
+            "email": "isaacwalters2019@gmail.com"
         }
     ],
     "require": {
