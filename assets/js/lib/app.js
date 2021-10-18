@@ -7,7 +7,7 @@ import { EventListFull, EventFull } from '/modules/events/assets/js/lib/render.j
 import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/js/lib/events.js';
 
 function init() {
-  // Probably change to document.querySelector.
+  // Probably change to document.querySelector().
   changeMainContainer("main");
   var events = getEvents();
   var eventsContactCount = getCountRegistrants();

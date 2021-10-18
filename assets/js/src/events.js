@@ -14,8 +14,8 @@ import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from 
 
 
 function switchToDetails(id) {
-    let event = getDetailsofEvent(id);
-    let contacts = getListofContacts(id);
+    let event = getEventDetails(id);
+    let contacts = getRegistrants(id);
     
     return Promise.all([event, contacts]).then(function(data) {
         document.getElementById("switchButton").classList.value = "switchButton";

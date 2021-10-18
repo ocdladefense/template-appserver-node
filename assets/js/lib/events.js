@@ -6,8 +6,8 @@ import { EventListFull, EventFull, EventList, EventSearch } from '/modules/event
 import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from '/modules/events/assets/js/lib/data.js';
 
 function switchToDetails(id) {
-  var event = getDetailsofEvent(id);
-  var contacts = getListofContacts(id);
+  var event = getEventDetails(id);
+  var contacts = getRegistrants(id);
   return Promise.all([event, contacts]).then(function (data) {
     document.getElementById("switchButton").classList.value = "switchButton";
     return vNode(EventFull, {

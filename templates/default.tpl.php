@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php print module_path(); ?>/assets/css/contactListTable.css">
+<link rel="stylesheet" href="<?php print module_path(); ?>/assets/css/example.css">
 
 <section>
     
@@ -7,16 +7,7 @@
     </a>
 
     <div id="main">
-        <div class="event-list" id="eventList1">
-        </div>
-    </div>
-
-
-    
-    <br />
-    <div id="contactList">
-        <div class="contact-list" id="contactList1">
-            <div class="flex-parent contact-list" id="contactList2"></div>
+        <div class="example-list" id="example-list">
         </div>
     </div>
 
