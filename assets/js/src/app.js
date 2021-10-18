@@ -16,7 +16,7 @@ import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/
 
 
 function init() {
-    // Probably change to document.querySelector.
+    // Probably change to document.querySelector().
     changeMainContainer("main");
 
     let events = getEvents();
