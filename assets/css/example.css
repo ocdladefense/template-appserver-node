@@ -1,4 +1,25 @@
 
+.record-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.record-list-item {
+  width: 30%;
+  padding: 2%;
+  cursor:pointer;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  transition-delay: 0.1s;
+  border-radius: 10px;
+}
+
+.record-list-item:hover {
+	background-color:rgba(0,0,0,0.2);
+}
+
+
 li.attendee-current-member::before {
 	content:"Is Member: ";
 }

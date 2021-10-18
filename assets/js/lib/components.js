@@ -31,28 +31,27 @@ var EventSearch = function EventSearch(props) {
     "class": "form-item"
   }, vNode("input", {
     type: "text",
-    id: "object-search",
-    placeholder: "Enter name or location",
-    style: "float:left;",
+    id: "record-search",
+    placeholder: "Enter search terms...",
     value: searchBar
   })), vNode("div", {
     "class": "form-item"
   }, vNode("input", {
     type: "button",
-    id: "submitSearch",
+    id: "submit-search",
     "data-action": "search",
     value: "search"
   })), vNode("div", {
     "class": "form-item"
   }, vNode("label", null, "Dates from Oldest to Newest"), vNode("input", {
     type: "checkbox",
-    id: "dateCheckBox",
+    id: "date-checkbox",
     checked: datesChecked ? true : null
   })), vNode("div", {
     "class": "form-item"
   }, vNode("label", null, "Number of Attendees from Highest to Lowest"), vNode("input", {
     type: "checkbox",
-    id: "contactsChecked",
+    id: "contacts-checkbox",
     checked: contactsChecked ? true : null
   })));
 };
@@ -68,8 +67,8 @@ var EventList = function EventList(props) {
   }
 
   return vNode("div", {
-    "class": "flex-parent event-list",
-    id: "contactList3"
+    "class": "flex-parent record-list",
+    id: "record-list-3"
   }, list);
 };
 
@@ -78,9 +77,9 @@ var EventListItem = function EventListItem(props) {
   // theCount = CACHE.get("eventsContactCount")[props.event.Id] ? theCount : "None";
   var theCount = "5";
   return vNode("div", {
-    "class": "event-list-item"
+    "class": "record-list-item"
   }, vNode("h3", null, vNode("a", {
-    "class": "eventButton eventButton2",
+    "class": "record-button record-button-2",
     href: "#" + props.event.Id,
     "data-action": "details",
     "data-event-id": props.event.Id
@@ -96,13 +95,13 @@ var EventFull = function EventFull(props) {
 var EventDetails = function EventDetails(props) {
   var event = props.event;
   return vNode("div", null, vNode("h1", {
-    "class": "marginMaker2"
+    "class": "margin-maker-2"
   }, event.Name), vNode("h3", {
-    "class": "marginMaker"
+    "class": "margin-maker"
   }, event.Start_Date__c), vNode("a", {
     href: "https://ocdla.force.com/OcdlaEvent?id=" + event.Id,
     target: "_blank",
-    "class": "marginMaker"
+    "class": "margin-maker"
   }, "Link to the event page in more detail."));
 };
 

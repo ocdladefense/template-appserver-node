@@ -43,21 +43,21 @@ const EventSearch = function(props) {
 
             <h3>Record search</h3>
             <div class="form-item">
-            	<input type="text" id="object-search" placeholder="Enter name or location" style="float:left;" value={searchBar} />
+            	<input type="text" id="record-search" placeholder="Enter search terms..." value={searchBar} />
             </div>
             
             <div class="form-item">
-            	<input type="button" id="submitSearch" data-action="search" value="search" />
+            	<input type="button" id="submit-search" data-action="search" value="search" />
             </div>
 
             <div class="form-item">
             	<label>Dates from Oldest to Newest</label>
-            	<input type="checkbox" id="dateCheckBox" checked={datesChecked ? true : null} />
+            	<input type="checkbox" id="date-checkbox" checked={datesChecked ? true : null} />
             </div>
             
             <div class="form-item">
             	<label>Number of Attendees from Highest to Lowest</label>
-            	<input type="checkbox" id="contactsChecked" checked={contactsChecked ? true : null} />
+            	<input type="checkbox" id="contacts-checkbox" checked={contactsChecked ? true : null} />
 						</div>
 						
         </div>
@@ -73,7 +73,7 @@ const EventList = function(props) {
     }
 
     return (
-        <div class="flex-parent event-list" id="contactList3">
+        <div class="flex-parent record-list" id="record-list-3">
             {list}
         </div>
     )
@@ -86,8 +86,8 @@ const EventListItem = function(props) {
     let theCount = "5";
     
     return (
-        <div class="event-list-item">
-            <h3><a class="eventButton eventButton2" href={"#" + props.event.Id} data-action="details" data-event-id={props.event.Id}>{props.event.Name}</a></h3>
+        <div class="record-list-item">
+            <h3><a class="record-button record-button-2" href={"#" + props.event.Id} data-action="details" data-event-id={props.event.Id}>{props.event.Name}</a></h3>
             <p>{props.event.Banner_Location_Text__c}</p>
             <p>{props.event.Start_Date__c}</p>
             <p>Attendees: {theCount}</p>
@@ -108,13 +108,13 @@ const EventDetails = function(props) {
 
     return (
         <div>
-            <h1 class="marginMaker2">
+            <h1 class="margin-maker-2">
                 {event.Name}
             </h1>
-            <h3 class="marginMaker">
+            <h3 class="margin-maker">
                 {event.Start_Date__c}
             </h3>
-            <a href={"https://ocdla.force.com/OcdlaEvent?id=" + event.Id} target="_blank" class="marginMaker">
+            <a href={"https://ocdla.force.com/OcdlaEvent?id=" + event.Id} target="_blank" class="margin-maker">
                 Link to the event page in more detail.
             </a>
         </div>
