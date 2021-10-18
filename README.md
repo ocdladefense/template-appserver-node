@@ -5,8 +5,8 @@ Example module for working with JavaScript in NodeJS.  The module has a default 
 # Change Log
 
 
-## v0.1.0
-We are incorporating virtual nodes.
+## 1.0.1
+Expose "npm run build" command to transpile JSX to JavaScript.
 
 
 
