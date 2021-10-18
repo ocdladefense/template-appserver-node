@@ -25,32 +25,36 @@ var EventSearch = function EventSearch(props) {
   var datesChecked = props.datesChecked;
   var contactsChecked = props.contactsChecked;
   return vNode("div", {
-    "class": "flex-parent event-list",
+    "class": "flex-parent object-list",
     id: "searchArea"
-  }, vNode("h1", null, "Upcoming OCDLA Seminars"), vNode("br", null), vNode("h3", null, "Search for Events"), vNode("input", {
+  }, vNode("h1", null, "My Object"), vNode("h3", null, "Recent records"), vNode("h3", null, "Record search"), vNode("div", {
+    "class": "form-item"
+  }, vNode("input", {
     type: "text",
-    id: "searchBar",
+    id: "object-search",
     placeholder: "Enter name or location",
     style: "float:left;",
     value: searchBar
-  }), vNode("input", {
+  })), vNode("div", {
+    "class": "form-item"
+  }, vNode("input", {
     type: "button",
     id: "submitSearch",
     "data-action": "search",
     value: "search"
-  }), vNode("br", null), vNode("p", {
-    style: "float:left;"
-  }, "Dates from Oldest to Newest: "), vNode("input", {
+  })), vNode("div", {
+    "class": "form-item"
+  }, vNode("label", null, "Dates from Oldest to Newest"), vNode("input", {
     type: "checkbox",
     id: "dateCheckBox",
     checked: datesChecked ? true : null
-  }), vNode("br", null), vNode("p", {
-    style: "float:left;"
-  }, "Number of Attendees from Highest to Lowest: "), vNode("input", {
+  })), vNode("div", {
+    "class": "form-item"
+  }, vNode("label", null, "Number of Attendees from Highest to Lowest"), vNode("input", {
     type: "checkbox",
     id: "contactsChecked",
     checked: contactsChecked ? true : null
-  }), vNode("br", null));
+  })));
 };
 
 var EventList = function EventList(props) {
@@ -70,7 +74,9 @@ var EventList = function EventList(props) {
 };
 
 var EventListItem = function EventListItem(props) {
-  var Count = parseInt(CACHE.get("eventsContactCount")[props.event.Id] && CACHE.get("eventsContactCount")[props.event.Id].expr0).toString();
+  // let theCount = parseInt(CACHE.get("eventsContactCount")[props.event.Id] && CACHE.get("eventsContactCount")[props.event.Id].expr0).toString();
+  // theCount = CACHE.get("eventsContactCount")[props.event.Id] ? theCount : "None";
+  var theCount = "5";
   return vNode("div", {
     "class": "event-list-item"
   }, vNode("h3", null, vNode("a", {
@@ -78,14 +84,12 @@ var EventListItem = function EventListItem(props) {
     href: "#" + props.event.Id,
     "data-action": "details",
     "data-event-id": props.event.Id
-  }, props.event.Name)), vNode("p", null, props.event.Banner_Location_Text__c), vNode("p", null, props.event.Start_Date__c), vNode("p", null, "Attendees: ", CACHE.get("eventsContactCount")[props.event.Id] ? Count : "None"));
+  }, props.event.Name)), vNode("p", null, props.event.Banner_Location_Text__c), vNode("p", null, props.event.Start_Date__c), vNode("p", null, "Attendees: ", theCount));
 };
 
 var EventFull = function EventFull(props) {
   return vNode("div", null, vNode(EventDetails, {
     event: props.event
-  }), vNode(ContactList, {
-    contacts: props.contacts
   }));
 };
 

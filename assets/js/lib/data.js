@@ -1,7 +1,15 @@
 export { getEvents, getEventDetails, getRegistrants, getCountRegistrants };
 
+function getEvents() {
+  return fetch("/example/list/json").then(function (resp) {
+    return resp.json();
+  }).then(function (data) {
+    return data;
+  });
+}
+
 function getEventDetails(queryId) {
-  return fetch("/events/eventdetailsjson/" + queryId).then(function (resp) {
+  return fetch("/example/details/" + queryId).then(function (resp) {
     return resp.json();
   }).then(function (data) {
     return data;
@@ -18,14 +26,6 @@ function getRegistrants(queryId) {
 
 function getCountRegistrants() {
   return fetch("/events/eventcontactcountjson").then(function (resp) {
-    return resp.json();
-  }).then(function (data) {
-    return data;
-  });
-}
-
-function getEvents() {
-  return fetch("/events/eventlistjson").then(function (resp) {
     return resp.json();
   }).then(function (data) {
     return data;

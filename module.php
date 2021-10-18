@@ -42,7 +42,7 @@ class ExampleModule extends Module {
 	public function getJsonDetails($id) {
 			$api = $this->loadForceApi();
 
-			$results = $api->query("SELECT Name, Id, Start_date__c FROM Event__c WHERE Id = '$eventId'");
+			$results = $api->query("SELECT Name, Id, Start_date__c FROM Event__c WHERE Id = '$id'");
 
 			$records = $results->getRecords();
 		

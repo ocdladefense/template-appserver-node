@@ -14,7 +14,7 @@
         "callback":"getJsonList",
         "content-type":"application/json"
      },
-      "example/details":{
+      "example/details/%id":{
          "callback":"getJsonDetails",
         "content-type":"application/json"
       }

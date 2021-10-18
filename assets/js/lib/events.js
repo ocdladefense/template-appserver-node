@@ -2,18 +2,17 @@
 export { switchToList, switchToDetails, doSearch };
 import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
 import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
-import { EventListFull, EventFull, EventList, EventSearch } from '/modules/events/assets/js/lib/render.js';
+import { EventListFull, EventFull, EventList, EventSearch } from '/modules/events/assets/js/lib/components.js';
 import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from '/modules/events/assets/js/lib/data.js';
 
 function switchToDetails(id) {
-  var event = getEventDetails(id);
-  var contacts = getRegistrants(id);
-  return Promise.all([event, contacts]).then(function (data) {
+  var event = getEventDetails(id); // let contacts = getRegistrants(id);
+
+  return Promise.all([event]).then(function (data) {
     document.getElementById("switchButton").classList.value = "switchButton";
     return vNode(EventFull, {
-      event: data[0],
-      contacts: data[1]
-    });
+      event: data[0]
+    }); // contacts={data[1]} />;
   });
 }
 
