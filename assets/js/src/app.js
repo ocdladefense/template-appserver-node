@@ -1,16 +1,17 @@
 /** @jsx vNode */
 
-import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { vNode, addEvent, getMainContainer, changeMainContainer, myAppEventHandler } from '/modules/events/node_modules/@ocdladefense/view/view.js';
 
 import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
 
-import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/full/contactFieldFormat.js';
 
-import { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts } from '/modules/events/assets/js/lib/full/data.js';
+import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/contactFieldFormat.js';
 
-import { EventListFull, EventFull } from '/modules/events/assets/js/lib/full/render.js';
+import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from '/modules/events/assets/js/lib/data.js';
 
-import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/js/lib/full/events.js';
+import { EventListFull, EventFull } from '/modules/events/assets/js/lib/render.js';
+
+import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/js/lib/events.js';
 
 
 
@@ -18,8 +19,8 @@ function init() {
     // Probably change to document.querySelector.
     changeMainContainer("main");
 
-    let events = getListofEvents();
-    let eventsContactCount = getCountofContacts();
+    let events = getEvents();
+    let eventsContactCount = getCountRegistrants();
 
     Promise.all([events, eventsContactCount]).then(function(data) {
         CACHE.set("events", data[0]);

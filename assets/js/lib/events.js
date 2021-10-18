@@ -2,8 +2,8 @@
 export { switchToList, switchToDetails, doSearch };
 import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
 import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
-import { EventListFull, EventFull, EventList, EventSearch } from '/modules/events/assets/js/lib/full/render.js';
-import { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts } from '/modules/events/assets/js/lib/full/data.js';
+import { EventListFull, EventFull, EventList, EventSearch } from '/modules/events/assets/js/lib/render.js';
+import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from '/modules/events/assets/js/lib/data.js';
 
 function switchToDetails(id) {
   var event = getDetailsofEvent(id);

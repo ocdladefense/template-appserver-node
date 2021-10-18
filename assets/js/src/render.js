@@ -16,7 +16,7 @@ import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
 
 import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
 
-import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/full/contactFieldFormat.js';
+import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/contactFieldFormat.js';
 
 
 

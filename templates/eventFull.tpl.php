@@ -26,4 +26,4 @@
 
 
 
-<script type="module" src="<?php print module_path(); ?>/assets/js/lib/full/app.js"></script>
+<script type="module" src="<?php print module_path(); ?>/assets/js/lib/app.js"></script>
