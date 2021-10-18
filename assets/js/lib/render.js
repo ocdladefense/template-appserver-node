@@ -1,8 +1,13 @@
 /** @jsx vNode */
+
+/**
+
+This is our list of components to be used in the app.
+
+**/
 export { EventListFull, EventFull, EventList, EventSearch };
-import { vNode, createElement, render, updateElement, tree, parseComponent, nodeList } from '/modules/events/node_modules/@isaac_walters/ocdla-view/view.js';
-import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@isaac_walters/cache-module/cache.js';
-import { jsDateFormatter, slqDateFormatter } from '/modules/events/node_modules/@isaac_walters/date-formatter/date.js';
+import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
 import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/full/contactFieldFormat.js';
 
 var EventListFull = function EventListFull(props) {
@@ -73,7 +78,7 @@ var EventListItem = function EventListItem(props) {
     href: "#" + props.event.Id,
     "data-action": "details",
     "data-event-id": props.event.Id
-  }, props.event.Name)), vNode("p", null, props.event.Banner_Location_Text__c), vNode("p", null, slqDateFormatter(props.event.Start_Date__c)), vNode("p", null, "Attendees: ", CACHE.get("eventsContactCount")[props.event.Id] ? Count : "None"));
+  }, props.event.Name)), vNode("p", null, props.event.Banner_Location_Text__c), vNode("p", null, props.event.Start_Date__c), vNode("p", null, "Attendees: ", CACHE.get("eventsContactCount")[props.event.Id] ? Count : "None"));
 };
 
 var EventFull = function EventFull(props) {
@@ -90,7 +95,7 @@ var EventDetails = function EventDetails(props) {
     "class": "marginMaker2"
   }, event.Name), vNode("h3", {
     "class": "marginMaker"
-  }, slqDateFormatter(event.Start_Date__c)), vNode("a", {
+  }, event.Start_Date__c), vNode("a", {
     href: "https://ocdla.force.com/OcdlaEvent?id=" + event.Id,
     target: "_blank",
     "class": "marginMaker"
@@ -135,7 +140,7 @@ var Attendee = function Attendee(props) {
     "class": "table-cell attendee-name"
   }, contact.Contact__r.Name + createMemberX(contact.Contact__r.Ocdla_Current_Member_Flag__c)), vNode("li", {
     "class": "table-cell attendee-order-date"
-  }, jsDateFormatter(contact.Order.EffectiveDate)), vNode("li", {
+  }, contact.Order.EffectiveDate), vNode("li", {
     "class": "table-cell attendee-ticket-name"
   }, contact.Product2.Name), vNode("li", {
     "class": "table-cell attendee-city"

@@ -1,6 +1,6 @@
-export { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts };
+export { getEvents, getEventDetails, getRegistrants, getCountRegistrants };
 
-function getDetailsofEvent(queryId) {
+function getEventDetails(queryId) {
   return fetch("/events/eventdetailsjson/" + queryId).then(function (resp) {
     return resp.json();
   }).then(function (data) {
@@ -8,7 +8,7 @@ function getDetailsofEvent(queryId) {
   });
 }
 
-function getListofContacts(queryId) {
+function getRegistrants(queryId) {
   return fetch("/events/eventcontactlistjson/" + queryId).then(function (resp) {
     return resp.json();
   }).then(function (data) {
@@ -16,16 +16,16 @@ function getListofContacts(queryId) {
   });
 }
 
-function getListofEvents() {
-  return fetch("/events/eventlistjson").then(function (resp) {
+function getCountRegistrants() {
+  return fetch("/events/eventcontactcountjson").then(function (resp) {
     return resp.json();
   }).then(function (data) {
     return data;
   });
 }
 
-function getCountofContacts() {
-  return fetch("/events/eventcontactcountjson").then(function (resp) {
+function getEvents() {
+  return fetch("/events/eventlistjson").then(function (resp) {
     return resp.json();
   }).then(function (data) {
     return data;

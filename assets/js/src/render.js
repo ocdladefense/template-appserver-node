@@ -12,7 +12,7 @@ This is our list of components to be used in the app.
 export { EventListFull, EventFull, EventList, EventSearch };
 
 
-import { vNode, createElement, render, updateElement, tree, parseComponent, nodeList } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
 
 import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
 

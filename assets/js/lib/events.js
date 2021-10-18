@@ -1,7 +1,7 @@
 /** @jsx vNode */
 export { switchToList, switchToDetails, doSearch };
-import { vNode } from '/modules/events/node_modules/@isaac_walters/ocdla-view/view.js';
-import { CACHE, HISTORY, vNodeHistory } from '/modules/events/node_modules/@isaac_walters/cache-module/cache.js';
+import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
 import { EventListFull, EventFull, EventList, EventSearch } from '/modules/events/assets/js/lib/full/render.js';
 import { getDetailsofEvent, getListofContacts, getListofEvents, getCountofContacts } from '/modules/events/assets/js/lib/full/data.js';
 
@@ -9,21 +9,18 @@ function switchToDetails(id) {
   var event = getDetailsofEvent(id);
   var contacts = getListofContacts(id);
   return Promise.all([event, contacts]).then(function (data) {
-    var virtualNodes = vNode(EventFull, {
+    document.getElementById("switchButton").classList.value = "switchButton";
+    return vNode(EventFull, {
       event: data[0],
       contacts: data[1]
     });
-    document.getElementById("switchButton").classList.value = "switchButton";
-    window.scrollTo(0, 0);
-    return virtualNodes;
   });
 }
 
 function switchToList() {
-  var virtualNodes = HISTORY.getRecent(1);
-  document.getElementById("switchButton").classList.value = "hiddenButton";
-  window.scrollTo(0, 0);
-  return Promise.resolve(virtualNodes);
+  document.getElementById("switchButton").classList.value = "hiddenButton"; // Need to change this function call to getLast();
+
+  return Promise.resolve(HISTORY.getRecent(1));
 }
 
 function doSearch(stringEntered, orderDatesAcs, orderAttendeesDesc) {
