@@ -1,10 +1,10 @@
 /** @jsx vNode */
-import { vNode, addEvent, getMainContainer, changeMainContainer, myAppEventHandler } from '/modules/events/node_modules/@ocdladefense/view/view.js';
-import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
-import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/contactFieldFormat.js';
-import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from '/modules/events/assets/js/lib/data.js';
-import { EventListFull, EventFull } from '/modules/events/assets/js/lib/components.js';
-import { switchToList, switchToDetails, doSearch } from '/modules/events/assets/js/lib/events.js';
+import { vNode, addEvent, getMainContainer, changeMainContainer, myAppEventHandler } from '../../../node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY } from '../../../node_modules/@ocdladefense/view/cache.js';
+import { cityFormatter, stateFormatter, createMemberX } from './contactFieldFormat.js';
+import { getEvents, getEventDetails, getRegistrants, getCountRegistrants } from './data.js';
+import { EventListFull, EventFull } from './components.js';
+import { switchToList, switchToDetails, doSearch } from './events.js';
 
 function init() {
   // Probably change to document.querySelector().

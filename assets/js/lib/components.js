@@ -6,9 +6,9 @@ This is our list of components to be used in the app.
 
 **/
 export { EventListFull, EventFull, EventList, EventSearch };
-import { vNode } from '/modules/events/node_modules/@ocdladefense/view/view.js';
-import { CACHE, HISTORY } from '/modules/events/node_modules/@ocdladefense/view/cache.js';
-import { cityFormatter, stateFormatter, createMemberX } from '/modules/events/assets/js/lib/contactFieldFormat.js';
+import { vNode } from '../../../node_modules/@ocdladefense/view/view.js';
+import { CACHE, HISTORY } from '../../../node_modules/@ocdladefense/view/cache.js';
+import { cityFormatter, stateFormatter, createMemberX } from './contactFieldFormat.js';
 
 var EventListFull = function EventListFull(props) {
   return vNode("div", null, vNode(EventSearch, {
